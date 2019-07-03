@@ -19,7 +19,7 @@ class Casino(object):
     def クレジット購入(self,cl,msg):
         credit = self.getUser(msg["source"]["userId"],"Credit")
         if credit <= 1000:
-            data = {'productImageUrl':'https://chino-chan.ga/kawaii'}
+            data = {'productImageUrl':'https://example.com'}
             transaction_info = self.pcl.reserve("Casino Credit",'1204','JPY',uuid.uuid4().hex,msg["source"]["userId"],**data)
             cl.addMessage("購入リンクを発行しました\nこちらから購入をお願いします\n"+transaction_info["info"]["paymentUrl"]["web"])
         else:
